@@ -1,5 +1,7 @@
 .gradle/
 .idea/
 build/
+bin/
+.vscode/
 *.jar
 !gradle\wrapper\gradle-wrapper.jar
