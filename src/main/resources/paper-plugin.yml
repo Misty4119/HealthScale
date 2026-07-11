@@ -1,0 +1,22 @@
+name: HealthScale
+version: '${version}'
+author: hehe
+description: 專為 Folia 設計的血量顯示縮放插件，支援世界覆蓋與高血量 RPG 伺服器。
+website: https://github.com/noietime/healthscale
+main: noietime.healthscale.Healthscale
+api-version: '1.21'
+folia-supported: true
+
+permissions:
+  healthscale.use:
+    description: 允許使用 /healthscale 基本指令 (info)
+    default: true
+  healthscale.admin:
+    description: 允許使用 reload 與 set 子指令
+    default: op
+  healthscale.*:
+    description: 授予所有 HealthScale 權限
+    default: op
+    children:
+      healthscale.use: true
+      healthscale.admin: true
