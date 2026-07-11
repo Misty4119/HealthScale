@@ -18,12 +18,25 @@ max-scale: 2048.0
 #  世界專屬覆蓋設定 (World Overrides)
 #  若世界名稱列於此處，該世界使用獨立數值
 #  不在清單中的世界一律套用上方全域設定
+#
+#  支援兩種 key 格式（優先採用 NamespacedKey）：
+#  1. NamespacedKey 格式: "namespace:path"
+#     對應檔案路徑 world/dimensions/<namespace>/<path>
+#     同名不同命名空間的世界必須使用此格式區分
+#     例如: "rpg:T1" 對應 world/dimensions/rpg/T1
+#           "minecraft:T1" 對應 world/dimensions/minecraft/T1
+#  2. 世界名稱格式 (舊版相容): worldName
+#     例如: world (主世界)、world_nether (地獄)
 # ==========================================
 world-overrides:
-  # 範例：RPG 主世界顯示 40 顆心
-  # rpg_world:
+  # 範例：使用 NamespacedKey 區分同名不同命名空間的世界
+  # "rpg:T1":
   #   health-scale: 80.0
-  # 範例：競技場世界顯示標準 10 顆心
+  # "minecraft:T1":
+  #   health-scale: 40.0
+  # 範例：使用世界名稱（舊版格式，仍相容）
+  # world:
+  #   health-scale: 20.0
   # arena_world:
   #   health-scale: 20.0
 

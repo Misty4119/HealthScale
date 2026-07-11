@@ -62,10 +62,19 @@ public class Healthscale extends JavaPlugin implements Listener {
             Map<String, Double> worldOverrides,
             Map<String, String> messages
     ) {
-        /** Returns the effective scale for the given world, falling back to globalScale. */
+        /**
+         * Returns the effective scale for the given world, falling back to globalScale.
+         * Lookup order:
+         * 1. Exact NamespacedKey match (e.g. "rpg:T1")
+         * 2. World name match (e.g. "T1") for backwards compatibility
+         * 3. Global scale fallback
+         */
         double scaleFor(@Nullable World world) {
             if (world == null) return globalScale;
-            return worldOverrides.getOrDefault(world.getName(), globalScale);
+            String key = world.getKey().toString(); // e.g. "rpg:T1" or "minecraft:overworld"
+            String name = world.getName();           // e.g. "T1" or "world"
+            return worldOverrides.getOrDefault(key,
+                   worldOverrides.getOrDefault(name, globalScale));
         }
     }
 
