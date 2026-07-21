@@ -129,7 +129,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.0.0.jar`.
+The output jar is at `build/libs/HealthScale-2.0.2.jar`.
 
 ---
 

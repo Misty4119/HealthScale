@@ -1,57 +1,50 @@
 # ==========================================
-#  FoliaHealthScale v2 核心設定
-#  作者: hehe | 相容: Folia 26.1.2
+#  HealthScale v2 Configuration
+#  Folia-native health display scaling plugin
 # ==========================================
 
-# 是否啟用血量縮放功能
+# Enable or disable health scaling functionality
 enabled: true
 
-# 全域預設顯示血量 (20.0 = 10 顆心)
-# 無論玩家真實血量是多少，UI 都會壓縮顯示為此值
+# Default global health scale value (20.0 = 10 hearts)
+# Regardless of player's actual max health, UI will scale to this value
 health-scale: 20.0
 
-# 血量縮放數值合法範圍 (伺服器管理員可調整上下限)
+# Valid bounds for health-scale configuration
 min-scale: 2.0
 max-scale: 2048.0
 
 # ==========================================
-#  世界專屬覆蓋設定 (World Overrides)
-#  若世界名稱列於此處，該世界使用獨立數值
-#  不在清單中的世界一律套用上方全域設定
+#  World-specific Overrides
+#  Worlds listed here will use their own custom health-scale value.
+#  Worlds not listed will default to the global health-scale above.
 #
-#  支援兩種 key 格式（優先採用 NamespacedKey）：
-#  1. NamespacedKey 格式: "namespace:path"
-#     對應檔案路徑 world/dimensions/<namespace>/<path>
-#     同名不同命名空間的世界必須使用此格式區分
-#     例如: "rpg:T1" 對應 world/dimensions/rpg/T1
-#           "minecraft:T1" 對應 world/dimensions/minecraft/T1
-#  2. 世界名稱格式 (舊版相容): worldName
-#     例如: world (主世界)、world_nether (地獄)
+#  Supports two key formats (NamespacedKey preferred):
+#  1. NamespacedKey format: "namespace:path" (e.g. "rpg:T1", "minecraft:overworld")
+#  2. World name format: "worldName" (e.g. "world", "world_nether")
 # ==========================================
 world-overrides:
-  # 範例：使用 NamespacedKey 區分同名不同命名空間的世界
+  # Example NamespacedKey override:
   # "rpg:T1":
   #   health-scale: 80.0
   # "minecraft:T1":
   #   health-scale: 40.0
-  # 範例：使用世界名稱（舊版格式，仍相容）
+  # Example legacy world name override:
   # world:
-  #   health-scale: 20.0
-  # arena_world:
   #   health-scale: 20.0
 
 # ==========================================
-#  訊息設定 (支援 MiniMessage 格式)
-#  佔位符語法: <placeholder>  (尖括號)
+#  Messages (MiniMessage format supported)
+#  Placeholder syntax: <placeholder>
 # ==========================================
 messages:
-  no-permission: "<red>你沒有權限執行此指令！</red>"
-  reload-start: "<yellow>正在重載 HealthScale 設定並分配任務至各 Region Threads...</yellow>"
-  reload-success: "<green>設定重載完成！全域血量縮放: <white><scale></white></green>"
-  reload-invalid-scale: "<red>config.yml 中的 health-scale 數值無效（必須介於 <min> ~ <max> 之間），已還原為預設值 20.0。</red>"
-  set-success: "<green>已將你的血量顯示縮放設為 <white><scale></white> 顆心。</green>"
-  set-invalid: "<red>無效數值。請輸入介於 <min> ~ <max> 之間的數字。</red>"
-  usage: "<red>用法：<white>/healthscale \\<reload|set \\<數值>|info></white></red>"
-  info: "<aqua>HealthScale v<version> | 目前全域縮放: <white><scale></white> | 世界覆蓋: <white><overrides></white> 個</aqua>"
-  plugin-enabled: "<green>HealthScale 已啟動 ✔</green>"
-  plugin-disabled: "<yellow>HealthScale 已停用。所有玩家血量縮放已重置。</yellow>"
+  no-permission: "<red>You do not have permission to execute this command!</red>"
+  reload-start: "<yellow>Reloading HealthScale configuration...</yellow>"
+  reload-success: "<green>Configuration reloaded successfully! Global health scale: <white><scale></white></green>"
+  reload-invalid-scale: "<red>Invalid health-scale value in config.yml (must be between <min> and <max>). Restored to default.</red>"
+  set-success: "<green>Health display scale set to <white><scale></white>.</green>"
+  set-invalid: "<red>Invalid value. Please specify a number between <min> and <max>.</red>"
+  usage: "<red>Usage: <white>/healthscale <reload|set <value>|info></white></red>"
+  info: "<aqua>HealthScale v<version> | Global scale: <white><scale></white> | World overrides: <white><overrides></white></aqua>"
+  plugin-enabled: "<green>HealthScale enabled successfully.</green>"
+  plugin-disabled: "<yellow>HealthScale disabled. Reset health scale for all players.</yellow>"
