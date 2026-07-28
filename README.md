@@ -80,22 +80,24 @@ max-scale: 2048.0
 # Per-world overrides — worlds listed here use their own scale value
 # Worlds not listed fall back to health-scale above
 world-overrides:
-  # rpg_world:
+  # rpg:world:
   #   health-scale: 80.0   # 40 hearts for your RPG world
-  # arena_world:
+  # world_nether:
   #   health-scale: 20.0   # standard 10 hearts in the arena
 
 # All messages support MiniMessage formatting
 # Available placeholders are shown in the comments below
 messages:
-  no-permission: "<red>你沒有權限執行此指令！</red>"
-  reload-start: "<yellow>正在重載 HealthScale 設定...</yellow>"
-  reload-success: "<green>設定重載完成！全域血量縮放: <white><scale></white></green>"   # {scale}
-  reload-invalid-scale: "<red>health-scale 數值無效（必須介於 <min> ~ <max>），已還原預設值。</red>"  # {min} {max}
-  set-success: "<green>已將血量顯示縮放設為 <white><scale></white> 顆心。</green>"   # {scale}
-  set-invalid: "<red>無效數值。請輸入介於 <min> ~ <max> 之間的數字。</red>"   # {min} {max}
-  usage: "<red>用法：<white>/healthscale <reload|set <數值>|info></white></red>"
-  info: "<aqua>HealthScale v<version> | 全域縮放: <white><scale></white> | 世界覆蓋: <white><overrides></white> 個</aqua>"  # {version} {scale} {overrides}
+  no-permission: "<red>You do not have permission to execute this command!</red>"
+  reload-start: "<yellow>Reloading HealthScale configuration...</yellow>"
+  reload-success: "<green>Configuration reloaded successfully! Global health scale: <white><scale></white></green>"
+  reload-invalid-scale: "<red>Invalid health-scale value in config.yml (must be between <min> and <max>). Restored to default.</red>"
+  set-success: "<green>Health display scale set to <white><scale></white>.</green>"
+  set-invalid: "<red>Invalid value. Please specify a number between <min> and <max>.</red>"
+  usage: "<red>Usage: <white>/healthscale <reload|set <value>|info></white></red>"
+  info: "<aqua>HealthScale v<version> | Global scale: <white><scale></white> | World overrides: <white><overrides></white></aqua>"
+  plugin-enabled: "<green>HealthScale enabled successfully.</green>"
+  plugin-disabled: "<yellow>HealthScale disabled. Reset health scale for all players.</yellow>"
 ```
 
 ### Scale value reference
@@ -129,7 +131,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.0.2.jar`.
+The output jar is at `build/libs/HealthScale-2.1.0.jar`.
 
 ---
 
