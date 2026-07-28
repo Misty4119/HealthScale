@@ -50,6 +50,21 @@ public class Healthscale extends JavaPlugin {
             );
         });
 
+        // Apply health scale to all already-online players.
+        // This covers plugin hot-reload (e.g. /reload, plugin manager restart) scenarios
+        // where players are already in-game when the plugin initialises.
+        // Delayed by 1 tick via GlobalRegionScheduler to ensure all worlds and other
+        // plugins are fully ready before we iterate online players.
+        final PluginConfig snapshot = this.cfg;
+        getServer().getGlobalRegionScheduler().runDelayed(this, task -> {
+            healthScaleService.updateAllPlayers(snapshot);
+            if (!getServer().getOnlinePlayers().isEmpty()) {
+                getLogger().info("[HealthScale] Applied health scale to "
+                        + getServer().getOnlinePlayers().size()
+                        + " already-online player(s) on startup.");
+            }
+        }, 1L);
+
         getLogger().info("HealthScale v" + getPluginMeta().getVersion()
                 + " enabled | Global scale: " + cfg.globalScale()
                 + " | World overrides: " + cfg.worldOverrides().size()
