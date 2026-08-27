@@ -1,7 +1,7 @@
 # HealthScale
 
-A lightweight Paper/Folia plugin that scales the health display in players' HUD — no matter how many actual hit points a player has, the heart bar always renders at the configured value.
-Designed for high-health RPG servers and fully compatible with Folia's multi-threaded region scheduling.
+A lightweight Canvas/Folia/Paper plugin that scales the health display in players' HUD — no matter how many actual hit points a player has, the heart bar always renders at the configured value.
+Designed for high-health RPG servers and compatible with Canvas/Folia multi-threaded region scheduling.
 
 ---
 
@@ -22,10 +22,10 @@ Designed for high-health RPG servers and fully compatible with Folia's multi-thr
 | Requirement | Version |
 |---|---|
 | Java | 25+ |
-| Paper / Folia | 1.21 (API), tested on 26.1.2 |
-| Minecraft | 1.21+ |
+| Canvas | 26.2 build 923 stable |
+| Minecraft | 26.2 |
 
-> The plugin is compiled against the Paper API and declares `folia-supported: true`, so it runs on both Paper and Folia.
+> The plugin is compiled against Canvas API `26.2.build.923-stable` and declares both `folia-supported: true` and `canvas-supported: true`.
 
 ---
 
@@ -131,7 +131,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.1.0.jar`.
+The output jar is at `build/libs/HealthScale-2.1.1.jar`.
 
 ---
 

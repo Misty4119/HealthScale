@@ -5,16 +5,17 @@ plugins {
 }
 
 group = "noietime"
-version = "2.1.0"
+version = "2.1.1"
 
 repositories {
     mavenCentral()
+    maven("https://maven.canvasmc.io/public/")
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
-    // Folia is API-compatible with Paper; paper-api covers all needed APIs
-    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    // Compile against the exact API bundled with Canvas 26.2 build 923.
+    compileOnly("io.canvasmc.canvas:canvas-api:26.2.build.923-stable")
 }
 
 java {
@@ -41,7 +42,7 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("26.1.2")
+        minecraftVersion("26.2")
         jvmArgs("-Xms2G", "-Xmx2G")
     }
 

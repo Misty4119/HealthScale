@@ -68,7 +68,7 @@ public class Healthscale extends JavaPlugin {
         getLogger().info("HealthScale v" + getPluginMeta().getVersion()
                 + " enabled | Global scale: " + cfg.globalScale()
                 + " | World overrides: " + cfg.worldOverrides().size()
-                + " | Folia multithreading support enabled");
+                + " | Canvas/Folia multithreading support enabled");
     }
 
     @Override

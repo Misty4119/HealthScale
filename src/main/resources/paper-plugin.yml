@@ -1,11 +1,12 @@
 name: HealthScale
 version: '${version}'
 author: Linmimeng
-description: A health display scaling plugin designed specifically for Folia, supporting world coverage and high-health RPG servers.
+description: A health display scaling plugin for Canvas and Folia, supporting world coverage and high-health RPG servers.
 website: https://github.com/Misty4119/HealthScale
 main: noietime.healthscale.Healthscale
-api-version: '1.21'
+api-version: '26.2'
 folia-supported: true
+canvas-supported: true
 
 permissions:
   healthscale.use:
