@@ -22,10 +22,10 @@ Designed for high-health RPG servers and compatible with Canvas/Folia multi-thre
 | Requirement | Version |
 |---|---|
 | Java | 25+ |
-| Canvas | 26.2 build 923 stable |
+| Canvas | 26.2 build 941 stable |
 | Minecraft | 26.2 |
 
-> The plugin is compiled against Canvas API `26.2.build.923-stable` and declares both `folia-supported: true` and `canvas-supported: true`.
+> The plugin is compiled against Canvas API `26.2.build.941-stable` and declares both `folia-supported: true` and `canvas-supported: true`.
 
 ---
 
@@ -131,7 +131,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.1.1.jar`.
+The output jar is at `build/libs/HealthScale-2.1.2.jar`.
 
 ---
 
