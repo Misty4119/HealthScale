@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "noietime"
-version = "2.1.2"
+version = "2.2.0"
 
 repositories {
     mavenCentral()
@@ -14,8 +14,8 @@ repositories {
 }
 
 dependencies {
-    // Compile against the exact API bundled with Canvas 26.2 build 941.
-    compileOnly("io.canvasmc.canvas:canvas-api:26.2.build.941-stable")
+    // Compile against the latest Canvas 26.3 API; runtime compatibility is checked on 26.2 as well.
+    compileOnly("io.canvasmc.canvas:canvas-api:26.3.build.985-stable")
 }
 
 java {
@@ -42,7 +42,7 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("26.2")
+        minecraftVersion("26.3")
         jvmArgs("-Xms2G", "-Xmx2G")
     }
 
