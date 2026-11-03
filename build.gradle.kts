@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "noietime"
-version = "2.3.0"
+version = "2.4.0"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     // Compile against the latest Canvas 26.3 API; runtime compatibility is checked on 26.2 as well.
-    compileOnly("io.canvasmc.canvas:canvas-api:26.3.build.985-stable")
+    compileOnly("io.canvasmc.canvas:canvas-api:26.3.build.993-stable")
 }
 
 java {

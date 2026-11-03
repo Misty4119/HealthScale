@@ -1,5 +1,8 @@
 # HealthScale
 
+> **Current test status (2026-11-03):** PlugDev completed a seven-cell startup/console smoke on Paper 26.2 #135 and 26.3 #237; Folia 26.2 #7 and 26.3 #3 (required), with #6 supplementary; and Canvas 26.2 #994 and 26.3 #993. No player-driven gameplay, GUI, cross-node, or packet-level suite ran. The harness does not support valid Folia plugin-status probes, so Folia evidence is limited to startup/console logs. These targets do not establish feature compatibility.
+
+
 A lightweight Canvas/Folia/Paper plugin that scales the health display in players' HUD — no matter how many actual hit points a player has, the heart bar always renders at the configured value.
 Designed for high-health RPG servers and compatible with Canvas/Folia multi-threaded region scheduling.
 
@@ -8,7 +11,7 @@ Designed for high-health RPG servers and compatible with Canvas/Folia multi-thre
 ## Features
 
 - **Global health-scale** — set a single display value for all worlds
-- **Per-world overrides** — different scale for each world (e.g. 80 hearts in your RPG world, 20 in the arena)
+- **Per-world overrides** — different scale for each world (e.g. scale 80 = 40 hearts in your RPG world, scale 20 = 10 hearts in the arena)
 - **Live reload** — `/healthscale reload` reloads `config.yml` and reapplies to all online players instantly, no restart needed
 - **Runtime set** — `/healthscale set <value>` changes the global scale on the fly without touching the config file
 - **Folia-native** — all player mutations are dispatched through `EntityScheduler`; bulk operations through `GlobalRegionScheduler`
@@ -22,10 +25,10 @@ Designed for high-health RPG servers and compatible with Canvas/Folia multi-thre
 | Requirement | Version |
 |---|---|
 | Java | 25+ |
-| Canvas | 26.2 build 941 stable |
-| Minecraft | 26.2 |
+| Compile API | Canvas API pinned in `build.gradle.kts` |
+| Server | Paper-compatible API; Folia/Canvas support declared in the descriptor |
 
-> The plugin is compiled against Canvas API `26.2.build.941-stable` and declares both `folia-supported: true` and `canvas-supported: true`.
+> The current build targets Java 25 and pins its Canvas API in `build.gradle.kts`. Descriptor support flags are declarations. The latest run records startup/console smoke only; full feature compatibility remains unverified.
 
 ---
 
@@ -131,7 +134,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.1.2.jar`.
+The output jar is at `build/libs/HealthScale-2.4.0.jar`.
 
 ---
 
