@@ -1,14 +1,20 @@
 # HealthScale
 
-A lightweight Canvas/Folia/Paper plugin that scales the health display in players' HUD — no matter how many actual hit points a player has, the heart bar always renders at the configured value.
-Designed for high-health RPG servers and compatible with Canvas/Folia multi-threaded region scheduling.
+**Fork/build notice:** This checkout's Gradle build produces `build/libs/HealthScale-<version>.jar`. The linked GitHub Releases page contains published artifacts and may not match the current checkout or its uncommitted changes.
 
----
+
+## Current version and tested compatibility
+
+**Current deliverable version:** `2.4.0`.
+
+**Target:** Minecraft 26.2–26.3 on Paper, Folia, and Canvas.
+
+**Tested builds:** Paper 26.2 #135 and 26.3 #241; Folia 26.2 #7, 26.3 #3 (required), and #6; Canvas 26.2 #994 and 26.3 #1009 (latest successful 26.3 build checked 2026-11-05). **Verification scope:** Startup, plugin enablement, and general console smoke only; player workflows, data migrations, optional integrations, and cross-server behavior were not tested.
 
 ## Features
 
 - **Global health-scale** — set a single display value for all worlds
-- **Per-world overrides** — different scale for each world (e.g. 80 hearts in your RPG world, 20 in the arena)
+- **Per-world overrides** — different scale for each world (e.g. scale 80 = 40 hearts in your RPG world, scale 20 = 10 hearts in the arena)
 - **Live reload** — `/healthscale reload` reloads `config.yml` and reapplies to all online players instantly, no restart needed
 - **Runtime set** — `/healthscale set <value>` changes the global scale on the fly without touching the config file
 - **Folia-native** — all player mutations are dispatched through `EntityScheduler`; bulk operations through `GlobalRegionScheduler`
@@ -22,16 +28,16 @@ Designed for high-health RPG servers and compatible with Canvas/Folia multi-thre
 | Requirement | Version |
 |---|---|
 | Java | 25+ |
-| Canvas | 26.2 build 941 stable |
-| Minecraft | 26.2 |
+| Compile API | Canvas API pinned in `build.gradle.kts` |
+| Server | Paper-compatible API; Folia/Canvas support declared in the descriptor |
 
-> The plugin is compiled against Canvas API `26.2.build.941-stable` and declares both `folia-supported: true` and `canvas-supported: true`.
+> The current build targets Java 25 and pins its Canvas API in `build.gradle.kts`.
 
 ---
 
 ## Installation
 
-1. Download the latest `HealthScale-x.x.x.jar` from [Releases](https://github.com/Misty4119/HealthScale/releases).
+1. Build this checkout and install its JAR from `build/libs/`, or choose a published artifact from [Releases](https://github.com/Misty4119/HealthScale/releases) after checking that release's source revision and compatibility notes.
 2. Drop it into your server's `plugins/` folder.
 3. (Re)start the server — a default `config.yml` is generated automatically.
 4. Edit `plugins/HealthScale/config.yml` to your liking.
@@ -70,7 +76,7 @@ Designed for high-health RPG servers and compatible with Canvas/Folia multi-thre
 enabled: true
 
 # Default display scale for all worlds (20.0 = 10 hearts)
-# The HUD always shows this many hearts regardless of the player's actual max HP
+# This is a display-health value: two scale points represent one heart; actual max HP is unchanged
 health-scale: 20.0
 
 # Allowed range for health-scale values
@@ -131,7 +137,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.1.2.jar`.
+The output jar is at `build/libs/HealthScale-2.4.0.jar`.
 
 ---
 
