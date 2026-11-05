@@ -5,11 +5,11 @@
 
 ## Current version and tested compatibility
 
-**Current deliverable version:** `2.4.0`.
+**Current deliverable version:** `2.5.0`.
 
 **Target:** Minecraft 26.2–26.3 on Paper, Folia, and Canvas.
 
-**Tested builds:** Paper 26.2 #135 and 26.3 #241; Folia 26.2 #7, 26.3 #3 (required), and #6; Canvas 26.2 #994 and 26.3 #1009 (latest successful 26.3 build checked 2026-11-05). **Verification scope:** Startup, plugin enablement, and general console smoke only; player workflows, data migrations, optional integrations, and cross-server behavior were not tested.
+**Tested builds:** Paper 26.2 #135 and 26.3 #242; Folia 26.2 #7, 26.3 #3 (required), and #6; Canvas 26.2 #994 and 26.3 #1010 (latest successful 26.3 build checked 2026-11-06). **Verification scope:** Startup, plugin enablement, and general console smoke only; player workflows, data migrations, optional integrations, and cross-server behavior were not tested.
 
 ## Features
 
@@ -137,7 +137,7 @@ cd healthscale
 ./gradlew shadowJar
 ```
 
-The output jar is at `build/libs/HealthScale-2.4.0.jar`.
+The output jar is at `build/libs/HealthScale-2.5.0.jar`.
 
 ---
 
